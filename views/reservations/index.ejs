@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reservations</title>
+</head>
+<body>
+  <h1>My Reservations</h1>
+  <a href="/reservations/new">New reservation</a>
+  <ul>
+    <% reservations.forEach(reservation => { %>
+      <li>
+        Room: <%= reservation.room.name %><br>
+        Start Time: <%= new Date(reservation.startTime).toLocaleString() %><br>
+        End Time: <%= new Date(reservation.endTime).toLocaleString() %><br>
+        <form action="/reservations/<%= reservation._id %>" method="POST">
+          <button type="submit">Cancel</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

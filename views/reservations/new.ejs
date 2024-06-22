@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Reservation</title>
+</head>
+<body>
+  <h1>Create a New Reservation</h1>
+  <form action="/reservations/new" method="POST">
+    <div>
+      <label for="room">Room:</label>
+      <select id="room" name="roomId" required>
+        <% rooms.forEach(room => { %>
+          <option value="<%= room._id %>"><%= room.name %></option>
+        <% }); %>
+      </select>
+    </div>
+    <div>
+      <label for="startTime">Start Time:</label>
+      <input type="datetime-local" id="startTime" name="startTime" required>
+    </div>
+    <div>
+      <label for="endTime">End Time:</label>
+      <input type="datetime-local" id="endTime" name="endTime" required>
+    </div>
+    <button type="submit">Create Reservation</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rooms</title>
+</head>
+<body>
+  <h1>Available Rooms</h1>
+  <a href="/rooms/new">Add new Room</a>
+  <ul>
+    <% rooms.forEach(room => { %>
+      <li>
+        <h2><%= room.name %></h2>
+        <p>Capacity: <%= room.capacity %></p>
+        <p>Equipment: <%= room.equipment.join(', ') %></p>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
